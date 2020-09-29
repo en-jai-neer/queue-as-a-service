@@ -1,0 +1,9 @@
+com\queue\service\Catalog.class
+com\queue\service\ServiceController.class
+com\queue\service\ServiceBinding.class
+com\queue\service\Credentials.class
+com\queue\service\ServiceBrokerController.class
+com\queue\service\ServiceInstance.class
+com\queue\service\DBConnection.class
+com\queue\service\HashMapQueue.class
+com\queue\service\QueueInstance.class

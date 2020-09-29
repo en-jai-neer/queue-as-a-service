@@ -1,0 +1,13 @@
+---
+applications:
+- name: q-service
+  memory: 1G
+  host: q-service
+  path: target/QueueService-0.0.1-SNAPSHOT.war
+  timeout: 180
+  services:
+  - queue-service-postgres
+
+  env:
+    broker_username: admin
+    broker_pwd: secret
