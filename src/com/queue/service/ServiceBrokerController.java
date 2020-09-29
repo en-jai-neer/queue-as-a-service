@@ -124,7 +124,7 @@ public class ServiceBrokerController {
 	@Path("/service_instances/{instance_id}/service_bindings/{service_bind_id}")
 	@Produces("application/json")
 	public Response deleteServiceBinding(@PathParam("instance_id") String instanceId, @PathParam("service_bind_id") String bindingId, @QueryParam("service_id") String service_id, @QueryParam("plan_id") String plan_id){
-		if(serviceId.equals(service_id) == false || planId.equals(plan_id)) {
+		if(serviceId.equals(service_id) == false || planId.equals(plan_id) == false) {
 			return Response.status(400).entity("{}").build();
 		}
 		
@@ -138,7 +138,7 @@ public class ServiceBrokerController {
 	@Path("/service_instances/{instance_id}")
 	@Produces("application/json")
 	public Response deleteService(@PathParam("instance_id") String instanceId, @QueryParam("service_id") String service_id, @QueryParam("plan_id") String plan_id) {
-		if(serviceId.equals(service_id) == false || planId.equals(plan_id)) {
+		if(serviceId.equals(service_id) == false || planId.equals(plan_id) == false) {
 			return Response.status(400).entity("{}").build();
 		}
 		
