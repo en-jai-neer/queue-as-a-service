@@ -58,7 +58,7 @@ cf bind-service APP_NAME SERVICE_INSTANCE
 
 1. Clone the repo
 ```sh
-git clone https://github.com/your_username_/Project-Name.git
+git clone https://github.com/en-jai-neer/queue-as-a-service.git
 ```
 2. Install Maven dependencies
 ```sh
@@ -81,7 +81,6 @@ cf enable-service-access SERVICE [-o ORG]
 ```
 
 2. Now you can create as many instances of this service as you want!
-To create a service instance
 ```sh
 cf create-service SERVICE PLAN SERVICE_INSTANCE
 ```
@@ -97,20 +96,26 @@ You can now access, add and retrieve messages/data from the queue!
 
 Use Postman to access the apis hassle-free
 1. Add a message
-* PUT request
-* url: 'https://<service_name>.<domain_name>/v1/queueservice/add/<queue_id>'
-* Add basic authentication header and use the username and password received after creating a key
-* data: [the message you want add to the queue]
+```
+PUT request
+url: 'https://<service_name>.<domain_name>/v1/queueservice/add/<queue_id>'
+Add basic authentication header and use the username and password received after creating a key
+data: [the message you want add to the queue]
+```
  
 2. View the message at the beginning of the queue
-* GET request
-* url: 'https://<service_name>.<domain_name>/v1/queueservice/peek/<queue_id>'
-* Add basic authentication header and use the username and password received after creating a key
+```
+GET request
+url: 'https://<service_name>.<domain_name>/v1/queueservice/peek/<queue_id>'
+Add basic authentication header and use the username and password received after creating a key
+```
 
 3. Delete the message at the beginning of the queue
-* DELETE request
-* url: 'https://<service_name>.<domain_name>/v1/queueservice/remove/<queue_id>'
-* Add basic authentication header and use the username and password received after creating a key
+```
+DELETE request
+url: 'https://<service_name>.<domain_name>/v1/queueservice/remove/<queue_id>'
+Add basic authentication header and use the username and password received after creating a key
+```
 
 <!-- CONTRIBUTING -->
 ## Contributing
