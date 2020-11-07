@@ -1,8 +1,3 @@
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
-
-
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
@@ -74,14 +69,48 @@ mvn clean install
 cf push APP_NAME [-d DOMAIN]
 ```
 
-
-
 <!-- USAGE EXAMPLES -->
 ## Usage
 
+1. To use the app as a service, you will need to register the app as a service broker and then enable the access of this service to your org
+```sh
+cf create-service-broker SERVICE_BROKER USERNAME PASSWORD URL
+```
+```sh
+cf enable-service-access SERVICE [-o ORG]
+```
 
+2. Now you can create as many instances of this service as you want!
+To create a service instance
+```sh
+cf create-service SERVICE PLAN SERVICE_INSTANCE
+```
 
+3. Now, will need a key to access this service instance
+```sh
+cf create-service-key SERVICE_INSTANCE SERVICE_KEY
+```
 
+On successful execution this command will return you username, password and the queue_id to access the service instance
+
+You can now access, add and retrieve messages/data from the queue!
+
+Use Postman to access the apis hassle-free
+1. Add a message
+* PUT request
+* url: 'https://<service_name>.<domain_name>/v1/queueservice/add/<queue_id>'
+* Add basic authentication header and use the username and password received after creating a key
+* data: [the message you want add to the queue]
+ 
+2. View the message at the beginning of the queue
+* GET request
+* url: 'https://<service_name>.<domain_name>/v1/queueservice/peek/<queue_id>'
+* Add basic authentication header and use the username and password received after creating a key
+
+3. Delete the message at the beginning of the queue
+* DELETE request
+* url: 'https://<service_name>.<domain_name>/v1/queueservice/remove/<queue_id>'
+* Add basic authentication header and use the username and password received after creating a key
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -107,23 +136,7 @@ Project Link: [https://github.com/en-jai-neer/queue-as-a-service](https://github
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Img Shields](https://shields.io)
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Pages](https://pages.github.com)
-* [Animate.css](https://daneden.github.io/animate.css)
-* [Loaders.css](https://connoratherton.com/loaders)
-* [Slick Carousel](https://kenwheeler.github.io/slick)
-* [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
-* [Sticky Kit](http://leafo.net/sticky-kit)
-* [JVectorMap](http://jvectormap.com)
-* [Font Awesome](https://fontawesome.com)
-
-
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://www.linkedin.com/in/jaijain25/
+* [RESTful Service in Jersey](https://crunchify.com/how-to-build-restful-service-with-java-using-jax-rs-and-jersey/)
+* [Authentication](https://howtodoinjava.com/jersey/jersey-rest-security/)
+* [Cloud Foundry Docs](https://docs.cloudfoundry.org/)
+* [Maven Tutorial](https://www.baeldung.com/maven)
