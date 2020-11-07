@@ -24,6 +24,8 @@ It provides endpoints that allow software components to connect to the queue in 
 
 An example of a message could be something that tells one system to start processing a task, it could contain information about a finished task or just be a plain message.
 
+This message queue can be deployed as a service in cloud foundry (Platform as a Service) on any cloud infrastructure of your choice.
+
 ### Built With
 * [Java (JAX-RS) using Jersey](https://eclipse-ee4j.github.io/jersey/)
 * [Open Service Broker API](https://www.openservicebrokerapi.org/)
